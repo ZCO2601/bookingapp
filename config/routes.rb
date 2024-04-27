@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'reservations/import'
-  resources :reservations, only: [:index]
-  resources :reservations do
+  resources :reservations, only: [:index] do
     collection do
-      post 'import'
+      get :import
+      post :import
+      get :show_indicators
     end
   end
 end
