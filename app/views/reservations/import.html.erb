@@ -1,2 +1,7 @@
 <h1>Reservations#import</h1>
 <p>Find me in app/views/reservations/import.html.erb</p>
+<form action="<%= reservations_import_path %>" method="post" enctype="multipart/form-data">
+  <%= csrf_meta_tags %>
+  <input type="file" name="csv_file">
+  <button type="submit">Importer</button>
+</form>
