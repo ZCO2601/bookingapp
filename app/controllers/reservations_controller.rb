@@ -1,7 +1,9 @@
 class ReservationsController < ApplicationController
   def import
     if params[:file].nil?
-      redirect_to import_reservations_path, alert: "Please select a file to import."
+      redirect_to reservations_path, alert: "Please select a file to import."
+    elsif File.extname(params[:file].original_filename) != ".csv"
+      redirect_to reservations_path, alert: "Please select a CSV file to import."
     else
       Reservation.import(params[:file])
       redirect_to reservations_path, notice: "File imported successfully."

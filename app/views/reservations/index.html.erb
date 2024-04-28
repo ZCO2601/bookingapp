@@ -11,10 +11,17 @@
     </div>
   <% end %>
 
-  <!-- Message d'alerte pour informer qu'aucun fichier n'a été selectionné' -->
+  <!-- Message d'alerte pour informer qu'aucun fichier n'a été selectionné -->
   <% if flash[:alert] %>
     <div class="alert alert-danger">
       <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <!-- Message d'alerte pour informer que le fichier n'est pas au bon format -->
+  <% if flash[:alert_format] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert_format] %>
     </div>
   <% end %>
 
