@@ -3,4 +3,4 @@
 <p>Nombre d'acheteurs uniques : <%= @number_of_unique_buyers %></p>
 <p>Âge moyen des acheteurs : <%= @average_buyer_age %> ans</p>
 <p>Prix moyen par représentation : <%= number_to_currency(@average_price_per_representation, unit: '€') %></p>
-<%= link_to "Importer un fichier", import_reservations_path %>
+<%= link_to "Importer un fichier", reservations_path %>

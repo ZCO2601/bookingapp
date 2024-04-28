@@ -5,8 +5,6 @@ class ReservationsController < ApplicationController
     else
       Reservation.import(params[:file])
       redirect_to reservations_path, notice: "File imported successfully."
-    else
-      redirect_to import_reservations_path, alert: "Failed to import file."
     end
   end
 
