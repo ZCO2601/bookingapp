@@ -6,7 +6,6 @@
 <%= form_tag import_reservations_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
-  <%=flash[:notice] =  %>
 <% end %>
 
 <div>
