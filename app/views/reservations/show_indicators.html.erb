@@ -1,6 +1,17 @@
 <h1>Indicateurs</h1>
+  <!-- Ajout d'un filtre pour afficher les indicateurs pour un spectacle en particulier -->
+<%= form_tag show_indicators_reservations_path, method: :get do %>
+  <label for="spectacle_id">Spectacle :</label>
+  <%= select_tag :spectacle_id, options_for_select(@spectacles.map{ |s| [s.nom, s.id] }) %>
+  <%= submit_tag "Afficher les indicateurs" %>
+<% end %>
+
+
 <p>Nombre de réservations : <%= @number_of_reservations %></p>
 <p>Nombre d'acheteurs uniques : <%= @number_of_unique_buyers %></p>
 <p>Âge moyen des acheteurs : <%= @average_buyer_age %> ans</p>
 <p>Prix moyen par représentation : <%= number_to_currency(@average_price_per_representation, unit: '€') %></p>
 <%= link_to "Importer un fichier", reservations_path %>
+
+
+

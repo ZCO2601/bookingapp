@@ -49,3 +49,54 @@ two:
   country: MyString
   age: 1
   gender: MyString
+
+
+reservation_one:
+  numero_billet: 1
+  reservation: '1234567890'
+  date_reservation: <%= Date.today %>
+  heure_reservation: <%= Time.now %>
+  cle_spectacle: 'ABC123'
+  spectacle: 'Spectacle 1'
+  cle_representation: 'DEF456'
+  representation: 'Representation 1'
+  date_representation: <%= Date.tomorrow %>
+  heure_representation: <%= Time.now %>
+  date_fin_representation: <%= Date.tomorrow + 1 %>
+  heure_fin_representation: <%= Time.now + 1.hour %>
+  prix: 10.0
+  type_de_produit: 'Produit 1'
+  filiere_de_vente: 'Filière 1'
+  nom: 'Dupont'
+  prenom: 'Jean'
+  email: 'jean.dupont@example.com'
+  adresse: '1 rue de l\'exemple'
+  code_postal: '75000'
+  pays: 'France'
+  age: 25
+  sexe: 'M'
+
+reservation_two:
+  numero_billet: 2
+  reservation: '0987654321'
+  date_reservation: <%= Date.today %>
+  heure_reservation: <%= Time.now %>
+  cle_spectacle: 'GHI789'
+  spectacle: 'Spectacle 2'
+  cle_representation: 'JKL012'
+  representation: 'Representation 2'
+  date_representation: <%= Date.tomorrow %>
+  heure_representation: <%= Time.now %>
+  date_fin_representation: <%= Date.tomorrow + 1 %>
+  heure_fin_representation: <%= Time.now + 1.hour %>
+  prix: 20.0
+  type_de_produit: 'Produit 2'
+  filiere_de_vente: 'Filière 2'
+  nom: 'Durand'
+  prenom: 'Pierre'
+  email: 'pierre.durand@example.com'
+  adresse: '2 rue de l\'exemple'
+  code_postal: '75000'
+  pays: 'France'
+  age: 30
+  sexe: 'M'
