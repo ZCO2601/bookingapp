@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get :import
       post :import
       get :show_indicators
+      get :import_summary
     end
   end
 end

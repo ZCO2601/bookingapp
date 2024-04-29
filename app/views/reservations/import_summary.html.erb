@@ -1,0 +1,63 @@
+<h1>Récapitulatif des réservations importées </h1>
+<div>
+<%= link_to "Voir les indicateurs", show_indicators_reservations_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero billet</th>
+      <th>Reservation</th>
+      <th>Date reservation</th>
+      <th>Heure reservation</th>
+      <th>Cle spectacle</th>
+      <th>Spectacle</th>
+      <th>Cle representation</th>
+      <th>Representation</th>
+      <th>Date representation</th>
+      <th>Heure representation</th>
+      <th>Date fin representation</th>
+      <th>Heure fin representation</th>
+      <th>Prix</th>
+      <th>Type de produit</th>
+      <th>Filiere de vente</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Email</th>
+      <th>Adresse</th>
+      <th>Code postal</th>
+      <th>Pays</th>
+      <th>Age</th>
+      <th>Sexe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.Numero_billet %></td>
+        <td><%= reservation.Reservation %></td>
+        <td><%= reservation.Date_reservation %></td>
+        <td><%= reservation.Heure_reservation %></td>
+        <td><%= reservation.Cle_spectacle %></td>
+        <td><%= reservation.Spectacle %></td>
+        <td><%= reservation.Cle_representation %></td>
+        <td><%= reservation.Representation %></td>
+        <td><%= reservation.Date_representation %></td>
+        <td><%= reservation.Heure_representation %></td>
+        <td><%= reservation.Date_fin_representation %></td>
+        <td><%= reservation.Heure_fin_representation %></td>
+        <td><%= reservation.Prix %></td>
+        <td><%= reservation.Type_de_produit %></td>
+        <td><%= reservation.Filiere_de_vente %></td>
+        <td><%= reservation.Nom %></td>
+        <td><%= reservation.Prenom %></td>
+        <td><%= reservation.Email %></td>
+        <td><%= reservation.Adresse %></td>
+        <td><%= reservation.Code_postal %></td>
+        <td><%= reservation.Pays %></td>
+        <td><%= reservation.Age %></td>
+        <td><%= reservation.Sexe %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
