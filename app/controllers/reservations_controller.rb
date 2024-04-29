@@ -1,12 +1,27 @@
 class ReservationsController < ApplicationController
+  #def import
+    #if params[:file].nil?
+      #redirect_to reservations_path, alert: "Please select a file to import."
+    #elsif File.extname(params[:file].original_filename) != ".csv"
+      #redirect_to reservations_path, alert: "Please select a CSV file to import."
+    #else
+      #Reservation.import(params[:file])
+      #redirect_to reservations_path, notice: "File imported successfully."
+    #end
+  #end
+
   def import
-    if params[:file].nil?
-      redirect_to reservations_path, alert: "Please select a file to import."
-    elsif File.extname(params[:file].original_filename) != ".csv"
-      redirect_to reservations_path, alert: "Please select a CSV file to import."
+    if params[:file].present?
+      # Spécifiez le séparateur de colonnes si ce n'est pas une virgule
+      CSV.foreach(params[:file].path, headers: true, col_sep: ';') do |row|
+        # Renommez les clés du hash pour correspondre aux noms des colonnes de la base de données
+        mapped_row = row.to_h.transform_keys { |key| key.gsub(" ", "_") }
+        # Assurez-vous que les champs correspondent aux attributs de votre modèle
+        Reservation.create(mapped_row)
+      end
+      redirect_to reservations_path, notice: "CSV importés avec succès!"
     else
-      Reservation.import(params[:file])
-      redirect_to reservations_path, notice: "File imported successfully."
+      redirect_to reservations_path, alert: "Veuillez fournir un fichier CSV."
     end
   end
 
