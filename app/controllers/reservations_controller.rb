@@ -15,16 +15,11 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.all
   end
 
-
   def show_indicators
     @reservations = Reservation.all
     @number_of_reservations = Reservation.count
     @number_of_unique_buyers = Reservation.distinct.count(:email)
     @average_buyer_age = Reservation.average(:age).to_i
-    @average_price_per_representation = Reservation.average(:prix).round(2)
+    @average_price_per_representation = @reservations.group(:Representation).average(:prix)
   end
-
-
-
-
 end

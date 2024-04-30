@@ -1,19 +1,23 @@
 <h1>Indicateurs</h1>
-
-<%= form_tag show_indicators_reservations_path, method: :get do %>
-  <div>
-    <%= label_tag "spectacle_id", "Spectacle :" %>
-    <%= select_tag "spectacle_id", options_for_select(@reservations.pluck(:Spectacle).uniq) %>
-  </div>
-
-  <%= submit_tag "Afficher les indicateurs" %>
-<% end %>
+<%= link_to "Importer un fichier", reservations_path %>
 
 <p>Nombre de réservations : <%= @number_of_reservations %></p>
 <p>Nombre d'acheteurs uniques : <%= @number_of_unique_buyers %></p>
 <p>Âge moyen des acheteurs : <%= @average_buyer_age %> ans</p>
-<p>Prix moyen par représentation : <%= number_to_currency(@average_price_per_representation, unit: '€') %></p>
-
-<%= link_to "Importer un fichier", reservations_path %>
-
-
+<p>Prix moyen par représentation :</p>
+<table>
+  <thead>
+    <tr>
+      <th>Représentation</th>
+      <th>Prix moyen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @average_price_per_representation.each do |representation, average_price| %>
+      <tr>
+        <td><%= representation %></td>
+        <td><%= number_to_currency(average_price, unit: '€') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
